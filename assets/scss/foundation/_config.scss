@@ -1,0 +1,30 @@
+// フォント設定
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Zen+Kaku+Gothic+New&display=swap');
+
+$f-ex: '游ゴシック Medium',
+YuGothic,
+YuGothicM,
+'Hiragino Kaku Gothic ProN',
+'Hiragino Kaku Gothic Pro',
+メイリオ,
+Meiryo,
+sans-serif;
+$f-zen: 'Zen Kaku Gothic New', $f-ex;
+$f-lat: 'Lato', $f-ex;
+
+// メディアクエリ
+$breakpoints: ('md': 'screen and (max-width: 768px)');
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoints, $bp)} {
+    @content;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  a[href*="tel:"] {
+    pointer-events : none !important;
+    text-decoration: none !important;
+  }
+}

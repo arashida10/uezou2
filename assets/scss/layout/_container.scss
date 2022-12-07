@@ -1,0 +1,7 @@
+.l-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  @include mq(md) {
+    width: calc(100% - 40px);
+  }
+}

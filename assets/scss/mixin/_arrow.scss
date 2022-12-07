@@ -1,0 +1,14 @@
+@mixin arrow($direction: "top") {
+  position: relative;
+  &::before {
+    content: "";
+    width: 15px;
+    height: 9px;
+    background: url(../images/common/arrow_wht.svg) center / contain no-repeat;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

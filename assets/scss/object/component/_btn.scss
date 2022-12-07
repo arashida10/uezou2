@@ -1,0 +1,15 @@
+.c-btn {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    font-size: 1.8rem;
+    background: #074E1F;
+    color: #fff;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size  : 1.5rem;
+  font-weight: 400;
+  font-family: $f-zen;
+  color      : #333;
+}
+
+img {
+  width         : 100%;
+  vertical-align: middle;
+}
+
+.sp {
+  display: none;
+}
+
+@include mq(md) {
+  body {
+    font-size: 1.4rem;
+  }
+  .sp {
+    display: inline-block;
+  }
+
+  .pc {
+    display: none;
+  }
+}
