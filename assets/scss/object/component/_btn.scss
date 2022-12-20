@@ -12,4 +12,67 @@
       opacity: .6;
     }
   }
+
+  // VIEW MORE 矢印付き
+  &-view-more {
+    a {
+      letter-spacing: 0.19em;
+      font-family: $f-lat;
+      padding-right: 90px;
+      position: relative;
+      transition: all .3s;
+      color: #074E1F;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 60px;
+        height: 10px;
+        background: url(../images/common/arrow02_green.svg) center / contain no-repeat;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        transition: all .4s;
+      }
+
+      &:hover {
+        opacity: 1;
+        &::after {
+          right: 0;
+        }
+      }
+    }
+
+    // カラー設定
+    &.-wht {
+      a {
+        color: #fff;
+        &::after {
+          background-image: url(../images/common/arrow02_wht.svg);
+        }
+      }
+    }
+  }
+
+  // VIEW MORE 横長
+  &-view-more02 {
+    a {
+      border: 1px solid #070607;
+      box-sizing: border-box;
+      color: #074E1F;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+      font-family: $f-lat;
+      letter-spacing: 0.05em;
+      &:hover {
+        background: #817E81;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
 }

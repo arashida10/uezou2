@@ -5,3 +5,23 @@
     opacity: 1;
   }
 }
+
+.img-zoom {
+  &:hover {
+    opacity: 1;
+    .img-box {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .img-box {
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+  }
+}

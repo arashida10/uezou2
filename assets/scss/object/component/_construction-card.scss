@@ -1,0 +1,18 @@
+.c-construction-card {
+  .img-box {
+    margin-bottom: 28px;
+  }
+  &__category {
+    font-family: $f-lat;
+    color: #070607;
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: 0.19em;
+  }
+  &__ttl {
+    font-size: 2.6rem;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+}

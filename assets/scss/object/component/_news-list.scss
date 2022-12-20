@@ -1,0 +1,23 @@
+.c-news-list {
+  li {
+    display: flex;
+    align-items: center;
+    & + li {
+      margin-top: 40px;
+    }
+  }
+  &__date {
+    margin-right: 28px;
+    color: #717171;
+    font-family: $f-lat;
+  }
+  .c-category {
+    margin-right: 30px;
+  }
+  a {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

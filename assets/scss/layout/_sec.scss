@@ -1,0 +1,19 @@
+.l-sec {
+  display: block;
+  padding-bottom: 160px;
+  .l-sec-ttl {
+    font-size: 3.2rem;
+    color: #074E1F;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    font-family: $f-lat;
+    margin-bottom: 70px;
+    span {
+      font-size: 0.5em;
+      display: block;
+      margin-top: 8px;
+      color: #333333;
+      font-family: $f-zen;
+    }
+  }
+}
