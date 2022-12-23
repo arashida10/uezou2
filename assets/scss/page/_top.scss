@@ -1,5 +1,10 @@
 #top {
+  .l-sec {
+    padding-bottom: 160px;
+  }
+
   .mv {
+    overflow: hidden;
     position: relative;
     width: calc(100% - 100px);
     height: calc(100vh - 100px);
@@ -26,7 +31,7 @@
       }
     }
     .mv-paging {
-      width: 100%;
+      width: calc(100% - 50px);
       position: absolute;
       left: 50px;
       bottom: 30px;
@@ -59,32 +64,29 @@
     padding-top: 160px;
     .about-box {
       display: flex;
-      justify-content: flex-end;
-      position: relative;
+      flex-wrap: wrap;
       &__left {
         width: 100%;
-        max-width: 681px;
-        position: absolute;
-        bottom: 0;
-        left: calc(50vw - 590px);
+        max-width: 685px;
+        margin-left: calc(50vw - 540px);
+        margin-top: 151px;
       }
       &__right {
-        width: calc(100% - 731px);
-        min-width: 561px;
+        width: 345px;
         position: relative;
         color: #fff;
-        padding: 70px calc(50vw - 590px) 70px 120px;
-        box-sizing: border-box;
+        padding: 70px calc(50vw - 540px) 70px 50px;
         margin-bottom: 105px;
         &::before {
           content: "";
-          width: 100%;
+          width: calc(100% + 120px);
           height: 100%;
           display: block;
           position: absolute;
           top: 0;
           right: 0;
-          background: #074E1F;
+          left: -120px;
+          background: #074e1f;
           z-index: -1;
         }
         .l-sec-ttl {
@@ -115,13 +117,14 @@
           position: relative;
           color: #fff;
           text-align: center;
+          display: block;
         }
         h3 {
           width: 100%;
           position: absolute;
-          left: 50%;
+          left: 0;
           top: 50%;
-          transform: translate(-50%, -50%);
+          transform: translateY(-50%);
           font-size: 3.2rem;
           font-weight: 400;
           letter-spacing: 0.08em;

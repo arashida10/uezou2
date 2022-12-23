@@ -1,0 +1,37 @@
+.c-tab {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  li {
+    border-left:   solid #707070;
+    width: calc(100% / 5);
+    box-sizing: border-box;
+    &:nth-child(5n),
+    &:last-child {
+      border-right:   solid #707070;
+    }
+
+    a {
+      position: relative;
+      padding-bottom: 21px;
+      font-size: 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 80px;
+      box-sizing: border-box;
+      letter-spacing: 0.05em;
+      &::after {
+        content: "";
+        width: 18px;
+        height: 10px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url(../images/common/icon_sankaku.svg) center / contain no-repeat;
+      }
+    }
+  }
+}

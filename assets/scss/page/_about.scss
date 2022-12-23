@@ -1,0 +1,97 @@
+#about {
+  .c-page-mv {
+    background-image: url(../images/about/mv_pc.jpg);
+    margin-bottom: 140px;
+  }
+
+  .president {
+    .president-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &__left {
+        width: 380px;
+      }
+      &__right {
+        width: calc(100% - 430px);
+        .txt {
+          margin-bottom: 30px;
+        }
+        .company-name,
+        .president-name {
+          text-align: right;
+          letter-spacing: 0.05em;
+        }
+        .company-name {
+          margin-bottom: 10px;
+          font-size: 2.2rem;
+        }
+        .president-name {
+          font-size: 3rem;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          span {
+            padding-right: 15px;
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+
+  .qol {
+    .qol-box {
+      background: url(../images/about/bk_qol_pc.jpg) center / cover no-repeat;
+      min-height: 439px;
+      box-sizing: border-box;
+      padding: 120px 50px;
+      text-align: center;
+      color: #fff;
+      letter-spacing: .05em;
+      h2 {
+        font-size: 2.4rem;
+        font-weight: 500;
+        margin-bottom: 40px;
+        line-height: 1.42;
+      }
+      p {
+        font-size: 1.8rem;
+        line-height: 1.78;
+      }
+    }
+  }
+
+  .with-ttl-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &__left {
+      width: 280px;
+    }
+    &__right {
+      width: calc(100% - 280px);
+    }
+  }
+
+  .company {
+    .with-ttl-box {
+      margin-bottom: 80px;
+    }
+    .g-map {
+      height: 410px;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .history {
+    .c-lines {
+      dt {
+        color: #333;
+      }
+    }
+  }
+}

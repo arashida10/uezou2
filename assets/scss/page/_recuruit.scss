@@ -1,0 +1,77 @@
+#recuruit {
+  .c-page-mv {
+    background-image: url(../images/recuruit/mv_pc.jpg);
+  }
+
+  .recuruit-intro {
+    padding-bottom: 140px;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 49%;
+      height: 400px;
+      z-index: -1;
+      background: url(../images/recuruit/image_pc.jpg) top right / 48.9vw no-repeat;
+    }
+
+    &__ttl,
+    &__txt {
+      line-height: 32px;
+      max-width: 611px;
+    }
+
+    &__ttl {
+      padding-top: 197px;
+      font-size: 2.6rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+    }
+
+    &__txt {
+      font-size: 1.8rem;
+    }
+  }
+
+  .recuruit-desc {
+    .l-container {
+      max-width: 704px;
+    }
+
+    .l-sec {
+      padding-bottom: 0;
+      .l-sec-ttl {
+        font-size: 3.2rem;
+        margin-bottom: 70px;
+      }
+    }
+
+    .c-lines {
+      margin-bottom: 60px;
+      dl {
+        font-size: 1.8rem;
+        dt {
+          color: #074E1F;
+          width: calc(100% - 527px);
+        }
+
+        dd {
+          max-width: 527px;
+          .msg {
+            font-size: 1.5rem;
+            line-height: 1.73;
+            display: block;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+
+    .c-btn {
+      text-align: center;
+    }
+  }
+}

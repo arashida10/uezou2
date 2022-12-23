@@ -1,0 +1,78 @@
+.c-before-after {
+  &-box {
+    background: #F2F0F2;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .c-before {
+      width: 38%;
+    }
+    .c-after {
+      width: 50%;
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        width: 8%;
+        height: 0;
+        padding-top: 7%;
+        background: url(../images/common/icon_sankaku02.svg) center / contain no-repeat;
+        position: absolute;
+        top: 50%;
+        left: -8%;
+        transform: translateX(-100%);
+      }
+
+      .c-before-after__ttl {
+        font-size: 3.2rem;
+      }
+    }
+  }
+
+  &__ttl {
+    color: #074E1F;
+    font-size: 2.4rem;
+    min-height: 90px;
+    font-family: $f-lat;
+    line-height: normal;
+    letter-spacing: 0.08em;
+    span {
+      font-size: 1.6rem;
+      color: #333;
+      display: block;
+    }
+  }
+
+  &-content {
+    max-width: 894px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &__left {
+      width: calc(100% - 661px);
+    }
+    &__right {
+      width: 611px;
+    }
+
+    &__ttl,
+    &__cost {
+      line-height: normal;
+    }
+
+    &__ttl {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    &__cost {
+      font-size: 3.6rem;
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -20,13 +20,58 @@ jQuery(function($) {
     centerPadding: "30%",
     autoplay: true, // 自動でスクロール
     autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
-    speed: 20000, // スライドが流れる速度を設定
+    speed: 25000, // スライドが流れる速度を設定
     cssEase: "linear", // スライドの流れ方を等速に設定
     swipe: false, // 操作による切り替えはさせない
     arrows: false, // 矢印非表示
     pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
     pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
   });
+
+  // ナビオープン
+  let winPos;
+  $("#sideNav-open-btn").on("click", function() {
+    $(this).toggleClass("is-open");
+    $("#sideNav").toggleClass("is-open");
+    $("#overlay").fadeToggle();
+
+    let flg = $('body').hasClass('is-open');
+
+    if (!flg) {
+      // open
+      winPos = $(window).scrollTop();
+      $('body').css('position', 'fixed').css('top', -winPos).css('width', '100%');
+      $('body').addClass('is-open');
+    } else {
+      // close
+      $('body').css('position', 'static').css('top', 0);
+      window.scrollTo( 0 , winPos );
+      $('body').removeClass('is-open');
+    }
+  });
+
+  $("#overlay").on("click", function() {
+    $("#sideNav-open-btn").removeClass("is-open");
+    $("#sideNav").removeClass("is-open");
+    $("#overlay").fadeOut();
+
+    $('body').css('position', 'static').css('top', 0);
+      window.scrollTo( 0 , winPos );
+      $('body').removeClass('is-open');
+  });
+
+  // トップMVスライダー
+  $("#top-mv").bgswitcher({
+    images: ["pic1.jpg", "pic2.jpg", "pic3.jpg"],
+
+  });
+
+  // Q&Aアコーディオン
+  $(".qa-wrap-q").on("click", function() {
+    $(this).next(".qa-wrap-a").slideToggle();
+    $(this).toggleClass("is-open");
+  });
+
 });
 
 const setFillHeight = () => {

@@ -1,0 +1,105 @@
+.p-contact {
+  &-batch {
+    background   : #074E1F;
+    color        : #fff;
+    font-family  : $f-zenMin;
+    margin-bottom: 70px;
+    padding      : 20px 100px;
+    display      : inline-block;
+
+    &__tel {
+      font-weight  : bold;
+      font-size    : 3.2rem;
+      margin-bottom: 5px;
+      line-height  : normal;
+
+      span {
+        font-size: 2.1rem;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    &__txt {
+      font-size  : 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  &-form {
+    background   : #fff;
+    border-radius: 10px;
+    box-shadow   : 0px 2px 7px 0px rgba($color: #333333, $alpha: .1);
+    padding      : 50px 60px;
+
+    &__line {
+      display  : flex;
+      flex-wrap: wrap;
+      font-size: 1.6rem;
+
+      & + dl {
+        margin-top: 20px;
+      }
+
+      .requied {
+        padding: 15px;
+        color  : #EB1A00;
+      }
+
+      &>dt {
+        width: calc(100% - 538px);
+      }
+
+      &>dd {
+        width    : 100%;
+        max-width: 538px;
+
+        input[type="text"],
+        textarea {
+          background: #F5F5F5;
+          border: none;
+          padding: 10px;
+          border-radius: 3px;
+          box-sizing: border-box;
+        }
+
+        input[type="text"] {
+          width: 300px;
+        }
+
+        label {
+          cursor: pointer;
+        }
+
+        textarea {
+          width: 100%;
+          min-height: 240px;
+        }
+
+        .msg {
+          color: #EB1A00;
+          font-size: 1.4rem;
+        }
+
+        .pla-poli {
+          margin-top: 32px;
+          a {
+            text-decoration: underline;
+            color: #178BB9;
+          }
+        }
+
+        .consent {
+          margin-top: 28px;
+        }
+
+        .c-btn {
+          margin-top: 35px;
+          max-width: 324px;
+        }
+      }
+    }
+  }
+}

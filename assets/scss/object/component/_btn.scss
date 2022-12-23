@@ -13,6 +13,28 @@
     }
   }
 
+  // 矢印
+  &.-arrow {
+    a {
+      position: relative;
+      padding: 0 61px 0 55px;
+      line-height: 58px;
+      display: inline-block;
+      text-align: center;
+      &::after {
+        content: "";
+        display: block;
+        width: 14px;
+        height: 8px;
+        background: url(../images/common/arrow_wht.svg) center/contain no-repeat;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+
   // VIEW MORE 矢印付き
   &-view-more {
     a {

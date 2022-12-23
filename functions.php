@@ -10,6 +10,9 @@ function add_files(){
 	wp_enqueue_style('slick', get_template_directory_uri() . '/assets/js/slick/slick.css');
 	wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js');
 
+	// BgSwitcher読み込み
+	wp_enqueue_script('bgSwitcher', get_template_directory_uri() . '/assets/js/jquery.bgswitcher.js');
+
 	//カスタム
 	wp_enqueue_style('uezou', get_template_directory_uri() . '/assets/css/style.css', '', '1.0.0');
 	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', '1.0.0');

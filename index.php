@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<div id="top">
-  <div class="mv">
+<div id="top" class="contents">
+  <div id="top-mv" class="mv">
     <div class="mv-txt">
       <h2>GREEN IMPROVES<br>YOUR QUALITY OF LIFE</h2>
       <p>緑を活かし、クオリティ・オブ・ライフの向上を目指します</p>
@@ -93,7 +93,7 @@
 
       <ul class="c-listItem -row3 other-list">
         <li class="c-listItem__item">
-          <a href="<?php echo esc_url( home_url( '/business/' ) ); ?>#garden-management" class="img-zoom">
+          <a href="<?php echo esc_url( home_url( '/business/' ) ); ?>#cost" class="img-zoom">
             <div class="img-box">
               <picture>
                 <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/business_price_pc.jpg">
@@ -105,7 +105,7 @@
           </a>
         </li>
         <li class="c-listItem__item">
-          <a href="<?php echo esc_url( home_url( '/business/' ) ); ?>#tree-management" class="img-zoom">
+          <a href="<?php echo esc_url( home_url( '/item/' ) ); ?>" class="img-zoom">
             <div class="img-box">
               <picture>
                 <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/business_item_pc.jpg">
@@ -117,7 +117,7 @@
           </a>
         </li>
         <li class="c-listItem__item">
-          <a href="<?php echo esc_url( home_url( '/business/' ) ); ?>#pruning-planting" class="img-zoom">
+          <a href="<?php echo esc_url( home_url( '/q-a/' ) ); ?>" class="img-zoom">
             <div class="img-box">
               <picture>
                 <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/business_qa_pc.jpg">
@@ -219,7 +219,7 @@
         </div>
       </div>
       <div class="c-btn-view-more">
-        <a href="#">VIEW MORE</a>
+        <a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">VIEW MORE</a>
       </div>
     </div>
   </section>

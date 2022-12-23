@@ -22,37 +22,39 @@
             <p class="address">〒992-0021 山形県米沢市花沢3119-11<br>
             TEL.0238-49-9788／FAX.0238-49-9789</p>
             <div class="c-btn -wht">
-              <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a>
+              <a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ</a>
             </div>
           </div>
           <div class="l-footer-contents-right">
             <div class="l-footer-nav02-wrapper">
               <ul class="l-footer-nav02">
-                <li><a href="<?php echo esc_url( home_url( '/company/' ) ); ?>">会社案内</a></li>
-                <li>
-                  <a href="<?php echo esc_url( home_url( '/company/' ) ); ?>">事業内容</a>
+                <li <?php if( is_page('about') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">会社案内</a></li>
+                <li <?php if( is_page('business') ) echo ' class="is-current"'; ?>>
+                  <a href="<?php echo esc_url( home_url( '/business/' ) ); ?>">事業内容</a>
                   <ul>
-                    <li><a href="<?php echo esc_url( home_url( '/security/' ) ); ?>">安心の保障体制</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/price/' ) ); ?>">工事費用の目安</a></li>
+                    <li><a href="<?php if( !(is_page('business')) ) echo esc_url( home_url( '/business/' ) ); ?>#security">安心の保障体制</a></li>
+                    <li><a href="<?php if( !(is_page('business')) ) echo esc_url( home_url( '/business/' ) ); ?>#cost">工事費用の目安</a></li>
                   </ul>
                 </li>
                 <!-- SP用 -->
-                <li class="sp"><a href="<?php echo esc_url( home_url( '/jirei/' ) ); ?>">施工事例</a></li>
+                <li class="sp <?php if( is_page('construction') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
+                <!-- /SP用 -->
               </ul>
               <ul class="l-footer-nav02">
-                <li class="pc"><a href="<?php echo esc_url( home_url( '/jirei/' ) ); ?>">施工事例</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">取扱商品</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/info/' ) ); ?>">お知らせ</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/qa/' ) ); ?>">よくあるご質問</a></li>
+                <li class="pc <?php if( is_page('construction') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
+                <li <?php if( is_page('item') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">取扱商品</a></li>
+                <li <?php if( is_page('news') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">お知らせ</a></li>
+                <li <?php if( is_page('q-a') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/q-a/' ) ); ?>">よくあるご質問</a></li>
                 <!-- SP用 -->
-                <li class="sp"><a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">採用情報</a></li>
-                <li class="sp"><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
-                <li class="sp"><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a></li>
+                <li class="sp <?php if( is_page('recuruit') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/recuruit/' ) ); ?>">採用情報</a></li>
+                <li class="sp <?php if( is_page('privacy-policy') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
+                <li class="sp <?php if( is_page('contact-form') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ</a></li>
+                 <!-- /SP用 -->
               </ul>
               <ul class="l-footer-nav02 pc">
-                <li><a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">採用情報</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a></li>
+                <li <?php if( is_page('recuruit') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/recuruit/' ) ); ?>">採用情報</a></li>
+                <li <?php if( is_page('privacy-policy') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
+                <li <?php if( is_page('contact-form') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ</a></li>
               </ul>
             </div>
           </div>

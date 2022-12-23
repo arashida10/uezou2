@@ -1,6 +1,9 @@
 .l-sec {
   display: block;
-  padding-bottom: 160px;
+  padding-bottom: 140px;
+  &:last-child {
+    padding-bottom: 0;
+  }
   .l-sec-ttl {
     font-size: 3.2rem;
     color: #074E1F;

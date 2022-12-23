@@ -1,0 +1,98 @@
+#business {
+  .c-page-mv {
+    background-image: url(../images/business/mv_pc.jpg);
+    margin-bottom: 140px;
+  }
+
+  .business-desc {
+    .business-desc-list {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: calc((100% - 120px) / 3);
+        margin-right: 60px;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        &:first-child {
+          .business-desc-list__image-box {
+            img {
+              width: 61%;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          .business-desc-list__image-box {
+            img {
+              width: 41%;
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          .business-desc-list__image-box {
+            img {
+              width: 42%;
+            }
+          }
+        }
+      }
+
+      &__ttl {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+        text-align: center;
+        span {
+          font-size: 5rem;
+          font-weight: 500;
+          color: #074E1F;
+          padding-right: 15px;
+        }
+      }
+
+      &__image-box {
+        width: 208px;
+        height: 208px;
+        border-radius: 50%;
+        background: #074E1F;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__txt {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .business-content {
+    .l-sec-ttl {
+      margin-bottom: 50px;
+    }
+    .c-construction-card {
+      margin-bottom: 160px;
+      .c-btn {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .approximate-cost {
+    .l-sec-ttl {
+      margin-bottom: 50px;
+    }
+
+    .approximate-cost-list {
+      li {
+        & + li {
+          margin-top: 100px;
+        }
+      }
+    }
+  }
+
+}

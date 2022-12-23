@@ -1,0 +1,24 @@
+.c-lines {
+  dl {
+    display        : flex;
+    justify-content: space-between;
+    padding        : 15px 20px;
+    border-top     : 1px solid #DCDCDC;
+    font-size      : 1.6rem;
+    letter-spacing: 0.05em;
+
+    &:last-child {
+      border-bottom: 1px solid #DCDCDC;
+    }
+
+    dt {
+      color: #717171;
+      width: 137px;
+    }
+
+    dd {
+      width    : 100%;
+      max-width: 657px;
+    }
+  }
+}

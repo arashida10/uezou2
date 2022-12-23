@@ -1,37 +1,40 @@
 .l-header {
-  height  : 100px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  background: #fff;
+  height         : 100px;
+  position       : sticky;
+  top            : 0;
+  left           : 0;
+  right          : 0;
+  z-index        : 999;
+  background     : #fff;
   display        : flex;
   justify-content: space-between;
   flex-wrap      : wrap;
+  box-shadow: 0px 2px 7px 0px rgba($color: #333333, $alpha: .1);
 
   .l-header-logo {
-    width: 333px;
+    width      : 333px;
     margin-left: 50px;
-    display: flex;
+    display    : flex;
     align-items: center;
+    z-index    : 999;
   }
 
   .gNav {
     display: flex;
+
     .gNav-list {
       display        : flex;
       justify-content: space-between;
       align-items    : center;
       flex-wrap      : wrap;
-      margin-right: 50px;
+      margin-right   : 50px;
 
       li {
         &:not(:last-child) {
           margin-right: 45px;
         }
 
-        &.is-active a,
+        &.is-current a,
         a:hover {
           &::after {
             content: "";
@@ -40,62 +43,79 @@
 
         a {
           letter-spacing: 0.035em;
-          font-weight: 500;
-          position: relative;
+          font-weight   : 500;
+          position      : relative;
           padding-bottom: 12px;
+
           &:hover {
             opacity: 1;
           }
+
           &::after {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
+            position  : absolute;
+            left      : 0;
+            bottom    : 0;
+            width     : 100%;
+            height    : 2px;
             background: #074E1F;
+          }
+        }
+
+        &.is-current {
+          a {
+            &::after {
+              background: #7AB50A;
+            }
           }
         }
       }
     }
 
     .gNav-list02 {
-      width: 100px;
+      width   : 100px;
       position: relative;
+
       li {
         height: 100%;
-        width: 100%;
+        width : 100%;
+
         a {
-          background: #484646;
-          color: #fff;
-          text-align: center;
-          font-size: 1.4rem;
-          letter-spacing: 0.05em;
-          font-weight: 500;
-          display: block;
-          height: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
+          background     : #484646;
+          color          : #fff;
+          text-align     : center;
+          font-size      : 1.4rem;
+          letter-spacing : 0.05em;
+          font-weight    : 500;
+          display        : block;
+          height         : 100%;
+          display        : flex;
+          flex-wrap      : wrap;
+          align-items    : center;
           justify-content: center;
-          flex-direction: column;
+          flex-direction : column;
+
           img {
             height: 32px;
           }
+
           p {
             margin-top: 10px;
           }
         }
       }
+
       .-contact {
         a {
           background: #074E1F;
         }
       }
+
       .-recruit {
-        position: absolute;
-        bottom: 0;
+        position : absolute;
+        bottom   : 0;
         transform: translateY(100%);
       }
+
       #gNav-open {
         display: none;
       }
@@ -103,13 +123,143 @@
   }
 
   // サイドナビ
-  .sideNav-button {
+  .sideNav-open-btn {
     position: fixed;
-    left: 0;
+    top     : 50vh;
+    left    : 15px;
+    width   : 50px;
+    height  : 18px;
+    z-index : 998;
+    cursor  : pointer;
+    padding: 10px;
+
+    span {
+      width        : 50px;
+      height       : 2px;
+      border-radius: 1px;
+      position     : absolute;
+      background   : #070607;
+      transition   : all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      &:first-child {
+        top: 10px;
+      }
+
+      &:last-child {
+        bottom: 10px;
+      }
+    }
+
+    &.is-open {
+      span {
+        &:first-child {
+          top      : 50%;
+          transform: translateY(-50%) rotate(25deg);
+        }
+
+        &:last-child {
+          bottom   : 50%;
+          transform: translateY(50%) rotate(-25deg);
+        }
+      }
+    }
   }
+
   .sideNav {
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    transform      : translateX(-100%);
+    transition     : transform 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    background     : #fff;
+    z-index        : 997;
+    max-width      : 650px;
+    width          : 100%;
+    height         : 100vh;
+    padding        : 175px 100px 76px 175px;
+    box-sizing     : border-box;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    .sideNav-inner {
+      width          : 100%;
+      display        : flex;
+      justify-content: center;
+    }
+
+    .first {
+      width: 50%;
+
+      &>li {
+        margin-bottom: 50px;
+
+        &>a {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .second {
+      &>li {
+        margin-top  : 20px;
+        position    : relative;
+        padding-left: 1.5em;
+
+        &::before {
+          content   : "";
+          position  : absolute;
+          top       : 50%;
+          left      : 0;
+          transform : translateY(-50%);
+          background: #333333;
+          display   : block;
+          width     : 1em;
+          height    : 2px;
+        }
+      }
+    }
+
+    // 共通
+    a {
+      font-weight   : 500;
+      position      : relative;
+      padding-bottom: 3px;
+
+      &::before {
+        content   : "";
+        background: #074E1F;
+        width     : 0;
+        height    : 2px;
+        display   : block;
+        position  : absolute;
+        left      : 0;
+        bottom    : 0;
+        transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      &:hover {
+        opacity: 1;
+
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+
+  .overlay {
+    display: none;
     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    transform: translateX(-100%);
+    z-index: 996;
+    background: rgba($color: #070607, $alpha: 0.5);
   }
 }
