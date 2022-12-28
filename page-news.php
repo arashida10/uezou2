@@ -12,22 +12,51 @@ get_header(); ?>
 
   <div class="l-container">
     <ul class="c-news-list">
-      <li>
-        <span class="c-news-list__date">2022/01/01</span>
-        <span class="c-category">新着情報</span>
-        <a href="#">お知らせタイトルが入ります。お知らせタイトルが入ります。</a>
-      </li>
+      <?php
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 1,
+            'paged' => $paged
+        );
+        $the_query = new WP_Query($args);
+        if ($the_query->have_posts()) :
+        $count = $the_query->post_count;
+      ?>
+        <?php while ($the_query->have_posts()) : $the_query->the_post();
+        // カテゴリー情報を取得
+        $cat = get_the_category();
+        $cat = $cat[0];
+        $cat_name = $cat->cat_name;
+        ?>
+          <li itemscope>
+              <span class="c-news-list__date"><time datetime="<?php the_time('c');?>" itemprop="datePublished"><?php echo get_the_date('Y/m/d'); ?></time></span>
+              <span class="c-category"><?php echo $cat_name; ?></span>
+              <a href="<?php the_permalink(); ?>" itemprop="link" href="http://carava.co/"><?php the_title(); ?></a>
+          </li>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </ul>
 
-    <!-- pagenation -->
-    <div class="c-pagenation">
-      <ul class="page-numbers">
-        <li><span aria-current="page" class="page-numbers current">1</span></li>
-        <li><a class="page-numbers" href="https://tiarise.com/blog/page/2/">2</a></li>
-        <li><span class="page-numbers dots">…</span></li>
-        <li><a class="page-numbers" href="https://tiarise.com/blog/page/13/">13</a></li>
-      </ul>
-    </div>
+    <?php
+    // pagenation
+    if ($the_query->max_num_pages > 1) {
+      echo '<div class="c-pagenation">';
+      $p_bace = preg_replace('/\?.*/', '/', get_pagenum_link(1)).'%_%';
+      echo paginate_links(array(
+        'format' => 'page/%#%/',
+            'current' => max(1, $paged),
+            'mid_size' => 1,
+            'total' => $the_query->max_num_pages,
+            'type' => 'list',
+            'prev_text' => '',
+            'next_text' => '',
+      ));
+      echo '</div>';
+    }
+
+    wp_reset_postdata();
+    ?>
 
   </div>
 

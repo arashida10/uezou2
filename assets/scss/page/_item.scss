@@ -13,33 +13,37 @@
         border-bottom: 1px solid #DCDCDC;
       }
     }
-    .item-contacts {
-      li {
-        margin: 20px 0 80px 0;
-        width: calc(50% - 10px);
-        a {
-          min-height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #484646;
-          &:hover {
-            opacity: 1;
-            background: #074E1F;
-          }
+  }
+
+  .item-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+      margin: 20px 0 80px 0;
+      width: calc(50% - 10px);
+      a {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #484646;
+        &:hover {
+          opacity: 1;
+          background: #074E1F;
         }
       }
+    }
 
-      &__mail {
-        img {
-          height: 18px;
-        }
+    &__mail {
+      img {
+        height: 18px;
       }
+    }
 
-      &__tel {
-        img {
-          height: 25px;
-        }
+    &__tel {
+      img {
+        height: 25px;
       }
     }
   }

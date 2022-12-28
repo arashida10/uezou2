@@ -12,22 +12,6 @@ jQuery(function($) {
     return false;
   });
 
-  //  共通スライダー
-  $('#construction-slide').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "30%",
-    autoplay: true, // 自動でスクロール
-    autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
-    speed: 25000, // スライドが流れる速度を設定
-    cssEase: "linear", // スライドの流れ方を等速に設定
-    swipe: false, // 操作による切り替えはさせない
-    arrows: false, // 矢印非表示
-    pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
-    pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
-  });
-
   // ナビオープン
   let winPos;
   $("#sideNav-open-btn").on("click", function() {
@@ -61,9 +45,141 @@ jQuery(function($) {
   });
 
   // トップMVスライダー
-  $("#top-mv").bgswitcher({
-    images: ["pic1.jpg", "pic2.jpg", "pic3.jpg"],
+  let top_mv_pc_images = [
+    'top_slide01_pc.jpg',
+    'top_slide02_pc.jpg',
+    'top_slide03_pc.jpg',
+    'top_slide04_pc.jpg',
+    'top_slide05_pc.jpg',
+  ];
+  const top_mv_bks_cnt = top_mv_pc_images.length;
 
+  // 合計数出力
+  $('.mv-paging .page-cnt p').text(getZeroPadding(top_mv_bks_cnt, 2));
+
+  var timer = false;
+  let top_mv_images = top_mv_pc_images;
+  $(window).resize(function(){
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+      // リサイズが終了した時点で行う処理または関数を記述
+      const ua = navigator.userAgent;
+      if (ua.indexOf('iPhone') > -1 || (ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1) || ua.indexOf('iPad') > -1 || ua.indexOf('Android') > -1) {
+        top_mv_images = top_mv_images.map((image) => {
+          return image.replace("pc", "sp");
+        });
+      } else {
+          // PC
+          top_mv_images = top_mv_pc_images;
+      }
+    }, 200);
+  });
+
+  let top_mv_bks_index = 1;
+  let top_mv_bks_interval = 6000;
+
+  const top_mv_bks = top_mv_images.map((image, index) => {
+    return(
+      `<div class="mv-bk">
+        <div class="core-wrap">
+          <div class="core" style="background-image: url(${path}/assets/images/top/${image}); transform: scale(1.1);"></div>
+        </div>
+      </div>`
+    );
+  });
+
+  // 最初の一枚目
+  $('.mv-bk-wrap').append(top_mv_bks);
+  $('.mv-bk-wrap .mv-bk:first-child').css('z-index', '1');
+  TweenMax.to('.mv-bk-wrap .mv-bk:first-child .core-wrap',
+    0.7,{
+      width: '100%',
+      x: 0,
+      ease:"Power3.easeOut",
+      startAt: {
+        width: 0,
+        x:-100,
+      }
+    });
+    TweenMax.to('.mv-bk-wrap .mv-bk:first-child .core-wrap',
+    3,{
+      scale: 1,
+      ease:"Power3.easeOut",
+      startAt: {
+        scale:1.1
+      }
+    });
+    TweenMax.to('.line-wrap .line',
+    top_mv_bks_interval / 1000,{
+      width:"100%",
+      ease:"Power0.easeNone",
+      startAt: {
+        width:"0%"
+      }
+    });
+
+  // 残りループ
+  let top_mv_bks_z_index = top_mv_bks_index;
+  setInterval(function(){
+    top_mv_bks_index++;
+    top_mv_bks_z_index++;
+
+    $('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ')').css('z-index', top_mv_bks_z_index);
+    TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
+    0.7,{
+      width: '100%',
+      x: 0,
+      ease:"Power3.easeOut",
+      startAt: {
+        width: 0,
+        x:-100,
+      }
+    });
+    TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
+    3,{
+      scale: 1,
+      ease:"Power3.easeOut",
+      startAt: {
+        scale:1.1
+      }
+    });
+
+    // ページング処理
+    TweenMax.to('.line-wrap .line',
+    top_mv_bks_interval / 1000,{
+      width:"100%",
+      ease:"Power0.easeNone",
+      startAt: {
+        width:"0%"
+      }
+    });
+    // ページング数字プラス
+    $('.mv-paging .page-current p').text(getZeroPadding(top_mv_bks_index, 2));
+
+
+    // ループ
+    if (top_mv_bks_index === top_mv_bks_cnt) {
+      // リセット
+      top_mv_bks_index = 0;
+    }
+	},top_mv_bks_interval);
+
+  // トップ施工事例
+  $('#construction-slide').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "30%",
+    autoplay: true, // 自動でスクロール
+    autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
+    speed: 25000, // スライドが流れる速度を設定
+    cssEase: "linear", // スライドの流れ方を等速に設定
+    swipe: false, // 操作による切り替えはさせない
+    arrows: false, // 矢印非表示
+    pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
+    pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
   });
 
   // Q&Aアコーディオン
@@ -72,7 +188,40 @@ jQuery(function($) {
     $(this).toggleClass("is-open");
   });
 
+  // 施工事例スライダー
+  $('.construction-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false, // 矢印非表示
+    asNav: ".construction-slider-thumb",
+  });
+  $('.construction-slider-thumb').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    arrows: false, // 矢印非表示
+    asNavFor: ".construction-slider",
+    focusOnSelect: true,
+  });
+
+
+
+  // 0埋め
+  function getZeroPadding(number, decimals)
+  {
+    var number = String(number);
+
+    // 0埋め指定数より桁数が大きい場合は処理を中止
+    if (number.length > decimals) {
+      return number;
+    }
+
+    // 値の前に10を乗算し0を追加、その後指定桁数へ切り出し
+    return (Math.pow(10, decimals) + number).slice(decimals * -1);
+  }
+
 });
+
+
 
 const setFillHeight = () => {
   const vh = window.innerHeight * 0.01;

@@ -1,5 +1,5 @@
-<?php if(is_singular('works')): ?>
-  <?php get_template_part('single', 'works'); ?>
+<?php if(is_singular('construction')): ?>
+  <?php get_template_part('single', 'construction'); ?>
 <?php else: ?>
   <?php get_template_part('single', 'normal'); ?>
 <?php endif; ?>

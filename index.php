@@ -6,15 +6,18 @@
       <h2>GREEN IMPROVES<br>YOUR QUALITY OF LIFE</h2>
       <p>緑を活かし、クオリティ・オブ・ライフの向上を目指します</p>
     </div>
+    <!-- 背景スライド main.jsにて記述 -->
+    <div class="mv-bk-wrap"></div>
+    <!-- /背景スライド -->
     <div class="mv-paging">
-      <div class="page">
+      <div class="page page-current">
         <p>01</p>
       </div>
       <div class="line-wrap">
         <div class="line"></div>
       </div>
-      <div class="page">
-        <p>06</p>
+      <div class="page page-cnt">
+        <p></p>
       </div>
     </div>
   </div>
@@ -210,11 +213,28 @@
         </div>
         <div class="news-box__right">
           <ul class="c-news-list">
-            <li>
-              <span class="c-news-list__date">2022/01/01</span>
-              <span class="c-category">新着情報</span>
-              <a href="#">お知らせタイトルが入ります。お知らせタイトルが入ります。</a>
-            </li>
+            <?php
+              $args = array(
+                  'post_type' => 'post',
+                  'posts_per_page' => 4,
+              );
+              $the_query = new WP_Query($args);
+              if ($the_query->have_posts()) :
+            ?>
+              <?php while ($the_query->have_posts()) : $the_query->the_post();
+              // カテゴリー情報を取得
+              $cat = get_the_category();
+              $cat = $cat[0];
+              $cat_name = $cat->cat_name;
+              ?>
+                <li itemscope>
+                    <span class="c-news-list__date"><time datetime="<?php the_time('c');?>" itemprop="datePublished"><?php echo get_the_date('Y/m/d'); ?></time></span>
+                    <span class="c-category"><?php echo $cat_name; ?></span>
+                    <a href="<?php the_permalink(); ?>" itemprop="link" href="http://carava.co/"><?php the_title(); ?></a>
+                </li>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
           </ul>
         </div>
       </div>
