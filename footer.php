@@ -8,7 +8,7 @@
               <a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">採用情報<span>RECRUIT</span></a>
             </li>
             <li>
-              <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ<span>CONTACT</span></a>
+              <a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ<span>CONTACT</span></a>
             </li>
           </ul>
         </div>
@@ -37,22 +37,22 @@
                   </ul>
                 </li>
                 <!-- SP用 -->
-                <li class="sp <?php if( is_page('construction') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
+                <li class="sp <?php if( get_post_type() === 'construction' ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
                 <!-- /SP用 -->
               </ul>
               <ul class="l-footer-nav02">
-                <li class="pc <?php if( is_page('construction') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
-                <li <?php if( is_page('item') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">取扱商品</a></li>
+                <li class="pc <?php if( get_post_type() === 'construction' ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">施工事例</a></li>
+                <li <?php if( get_post_type() === 'item' ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">取扱商品</a></li>
                 <li <?php if( is_page('news') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">お知らせ</a></li>
                 <li <?php if( is_page('q-a') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/q-a/' ) ); ?>">よくあるご質問</a></li>
                 <!-- SP用 -->
-                <li class="sp <?php if( is_page('recuruit') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/recuruit/' ) ); ?>">採用情報</a></li>
+                <li class="sp <?php if( is_page('recruit') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">採用情報</a></li>
                 <li class="sp <?php if( is_page('privacy-policy') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
                 <li class="sp <?php if( is_page('contact-form') ) echo 'is-current'; ?>"><a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ</a></li>
                  <!-- /SP用 -->
               </ul>
               <ul class="l-footer-nav02 pc">
-                <li <?php if( is_page('recuruit') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/recuruit/' ) ); ?>">採用情報</a></li>
+                <li <?php if( is_page('recruit') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/recruit/' ) ); ?>">採用情報</a></li>
                 <li <?php if( is_page('privacy-policy') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">プライバシーポリシー</a></li>
                 <li <?php if( is_page('contact-form') ) echo ' class="is-current"'; ?>><a href="<?php echo esc_url( home_url( '/contact-form/' ) ); ?>">お問い合わせ</a></li>
               </ul>

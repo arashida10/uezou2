@@ -39,7 +39,7 @@
       flex-wrap: wrap;
       font-size: 1.6rem;
 
-      & + dl {
+      &+dl {
         margin-top: 20px;
       }
 
@@ -57,16 +57,28 @@
         max-width: 538px;
 
         input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
         textarea {
-          background: #F5F5F5;
-          border: none;
-          padding: 10px;
+          background   : #F5F5F5;
+          border       : none;
+          padding      : 10px;
           border-radius: 3px;
-          box-sizing: border-box;
+          box-sizing   : border-box;
+          width        : 100%;
         }
 
-        input[type="text"] {
-          width: 300px;
+        input[type="text"],
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"] {
+          max-width: 300px;
+        }
+
+        input[type="date"] {
+          max-width: 150px;
         }
 
         label {
@@ -74,20 +86,21 @@
         }
 
         textarea {
-          width: 100%;
+          width     : 100%;
           min-height: 240px;
         }
 
         .msg {
-          color: #EB1A00;
+          color    : #EB1A00;
           font-size: 1.4rem;
         }
 
         .pla-poli {
           margin-top: 32px;
+
           a {
             text-decoration: underline;
-            color: #178BB9;
+            color          : #178BB9;
           }
         }
 
@@ -95,11 +108,84 @@
           margin-top: 28px;
         }
 
-        .c-btn {
-          margin-top: 35px;
-          max-width: 324px;
+        // contact form 7
+        .wpcf7-radio {
+          .wpcf7-list-item {
+            display: block;
+            & + .wpcf7-list-item {
+              margin-top: 5px;
+            }
+          }
+
+          input[type="radio"] {
+            display: none;
+            &:checked + .wpcf7-list-item-label {
+              &::before {
+                display: inline-block;
+              }
+            }
+          }
+          .wpcf7-list-item-label {
+            position: relative;
+            padding-left: 30px;
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              border-radius: 50%;
+              display: inline-block;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+            }
+
+            &::before {
+              width: 15px;
+              height: 15px;
+              background: #074E1F;
+              left: 3.5px;
+              transition:all 0.1s;
+              display: none;
+              z-index: 1;
+            }
+
+            &::after {
+              width: 20px;
+              height: 20px;
+              border: 1px solid #B4B4B4;
+              border-radius: 50%;
+              background: #fff;
+            }
+          }
+        }
+
+        .wpcf7-list-item {
+          margin-left: 0;
         }
       }
+
+      &--address,
+      &--mail {
+        &>dd {
+
+          input[type=text],
+          input[type=email] {
+            max-width: 400px;
+          }
+        }
+      }
+    }
+  }
+
+  .c-btn {
+    margin: 35px auto 0;
+    max-width : 324px;
+    .wpcf7-submit {
+      cursor: pointer;
+    }
+    .wpcf7-submit:disabled {
+      cursor: not-allowed;
     }
   }
 }

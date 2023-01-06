@@ -3,8 +3,8 @@
 <div id="top" class="contents">
   <div id="top-mv" class="mv">
     <div class="mv-txt">
-      <h2>GREEN IMPROVES<br>YOUR QUALITY OF LIFE</h2>
-      <p>緑を活かし、クオリティ・オブ・ライフの向上を目指します</p>
+      <h2>GREEN IMPROVES<br>YOUR<br class="sp"><span class="pc"> </span>QUALITY OF LIFE</h2>
+      <p>緑を活かし、<br class="sp">クオリティ・オブ・ライフの向上を目指します</p>
     </div>
     <!-- 背景スライド main.jsにて記述 -->
     <div class="mv-bk-wrap"></div>
@@ -145,7 +145,7 @@
     </div>
     <div id="construction-slide" class="construction-list">
       <div class="c-construction-card">
-        <a href="" class="img-zoom">
+        <a href="<?php echo esc_url( home_url( '/construction/剪定・植樹/' ) ); ?>" class="img-zoom">
           <div class="img-box">
             <picture>
               <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/construction_prunning_pc.jpg">
@@ -158,7 +158,7 @@
         </a>
       </div>
       <div class="c-construction-card">
-        <a href="" class="img-zoom">
+        <a href="<?php echo esc_url( home_url( '/construction/庭園管理/' ) ); ?>" class="img-zoom">
           <div class="img-box">
             <picture>
               <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/construction_garden_pc.jpg">
@@ -171,7 +171,7 @@
         </a>
       </div>
       <div class="c-construction-card">
-        <a href="" class="img-zoom">
+        <a href="<?php echo esc_url( home_url( '/construction/樹木管理/' ) ); ?>" class="img-zoom">
           <div class="img-box">
             <picture>
               <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/construction_tree_pc.jpg">
@@ -184,7 +184,7 @@
         </a>
       </div>
       <div class="c-construction-card">
-        <a href="" class="img-zoom">
+        <a href="<?php echo esc_url( home_url( '/construction/その他/' ) ); ?>" class="img-zoom">
           <div class="img-box">
             <picture>
               <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/top/construction_other_pc.jpg">
@@ -199,7 +199,7 @@
     </div>
     <div class="l-container">
       <div class="c-btn-view-more02">
-        <a href="">VIEW MORE</a>
+        <a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">VIEW MORE</a>
       </div>
     </div>
   </section>

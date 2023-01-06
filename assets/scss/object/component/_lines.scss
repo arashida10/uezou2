@@ -2,7 +2,7 @@
   dl {
     display        : flex;
     justify-content: space-between;
-    padding        : 15px 20px;
+    padding        : 15px 0 15px 20px;
     border-top     : 1px solid #DCDCDC;
     font-size      : 1.6rem;
     letter-spacing: 0.05em;
@@ -19,6 +19,23 @@
     dd {
       width    : 100%;
       max-width: 657px;
+    }
+  }
+
+  @include mq(md) {
+    dl {
+      font-size      : 1.5rem;
+      flex-wrap: wrap;
+
+      dt,
+      dd {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      dt {
+        margin-bottom: 5px;
+      }
     }
   }
 }

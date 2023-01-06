@@ -22,7 +22,7 @@
       padding-top: 0.6em;
       min-height: 46px;
       box-sizing: border-box;
-      line-height: 28px;
+      line-height: 1.75;
       &::before {
         content: "";
         display: flex;
@@ -69,6 +69,44 @@
         margin-top: 1.67em;
         &::before {
           background-image: url(../images/common/icon_a.svg);
+        }
+      }
+    }
+
+    @include mq(md) {
+      padding: 30px 20px;
+      & + .qa-wrap {
+        margin-top: 20px;
+      }
+      .qa-wrap-q,
+      .qa-wrap-a__content {
+        padding: 51px 0 0 0;
+        min-height: auto;
+        &::before {
+          width: 36px;
+          height: 36px;
+        }
+      }
+      .qa-wrap-q {
+        font-size: 1.6rem;
+
+        &::after {
+          top: 36px;
+          transform: translateY(-100%)
+        }
+
+        &.is-open {
+          &::after {
+            transform: translateY(-100%) rotate(180deg);
+          }
+        }
+      }
+
+      .qa-wrap-a {
+        display: none;
+        font-size: 1.4rem;
+        &__content {
+          margin-top: 30px;
         }
       }
     }

@@ -75,4 +75,55 @@
       }
     }
   }
+
+  @include mq(md) {
+    &-box {
+      padding: 30px 20px;
+      .c-before {
+        width: 100%;
+      }
+      .c-after {
+        width: 100%;
+        margin-top: 86px;
+        &::before {
+          width: 9%;
+          padding-top: 8%;
+          top: -43px;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+      }
+    }
+
+    &__ttl {
+      min-height: auto;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &-content {
+      margin-top: 30px;
+      &__left,
+      &__right {
+        width: 100%;
+      }
+
+      &__left {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      &__ttl {
+        font-size: 2.2rem;
+        margin-bottom: 0;
+      }
+
+      &__cost {
+        font-size: 3.2rem;
+        span {
+          font-size: 0.5em;
+        }
+      }
+    }
+  }
 }

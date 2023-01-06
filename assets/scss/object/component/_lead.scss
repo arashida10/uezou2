@@ -19,3 +19,20 @@
   line-height: 1.78;
   margin-bottom: 50px;
 }
+
+@include mq(md) {
+  // 共通
+  .c-lead,
+  .c-lead02 {
+    width: calc(100% - 40px);
+    margin: 0 auto 40px;
+  }
+  .c-lead {
+    font-size: 2.1rem;
+    line-height: 1.62;
+  }
+
+  .c-lead02 {
+    font-size: 1.4rem;
+  }
+}

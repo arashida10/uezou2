@@ -10,12 +10,12 @@ get_header(); ?>
     <h1 class="c-page-mv__ttl">ABOUT<span>会社案内</span></h1>
   </div>
 
-  <p class="c-lead">伝統的な日本庭園を守りながら自由な発想にも注力し<br>
-  末永く愛される庭づくりを目指しています</p>
+  <p class="c-lead">伝統的な日本庭園を守りながら<br class="sp">自由な発想にも注力し<br>
+  末永く愛される<br class="sp">庭づくりを目指しています</p>
 
   <div class="l-sec president">
     <div class="l-container">
-      <div class="president-box">
+      <div id="greeting" class="president-box navAdjust">
         <div class="president-box__left">
           <picture>
             <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/about/president_pc.jpg">
@@ -39,16 +39,16 @@ get_header(); ?>
   <section class="l-sec qol">
     <div class="qol-box">
       <h2>緑を活かし<br>クオリティ・オブ・ライフの向上を目指す企業</h2>
-      <p>私たち植杉造園は、日々お客様に寄り添った質が高い仕事の提供を心掛けております。<br>
-      庭木の剪定、草刈り、芝刈り、施肥、消毒、雪囲いなどの造園業を中心に事業を展開しております。<br>
-      お庭のことならお気軽にお問い合わせください。</p>
+      <p>私たち植杉造園は、<br class="sp">日々お客様に寄り添った<br class="sp">質が高い仕事の提供を心掛けております。<br>
+      庭木の剪定、草刈り、<br class="sp">芝刈り、施肥、消毒、雪囲いなどの<br class="sp">造園業を中心に事業を展開しております。<br>
+      お庭のことなら<br class="sp">お気軽にお問い合わせください。</p>
     </div>
   </section>
   <!-- /.qol -->
 
   <section class="l-sec company">
     <div class="l-container">
-      <div class="with-ttl-box">
+      <div id="company" class="with-ttl-box navAdjust">
         <div class="with-ttl-box__left">
           <h2 class="l-sec-ttl">COMPANY<span>会社概要</span></h2>
         </div>
@@ -104,7 +104,7 @@ get_header(); ?>
 
   <section class="l-sec history">
     <div class="l-container">
-      <div class="with-ttl-box">
+      <div id="history" class="with-ttl-box navAdjust">
         <div class="with-ttl-box__left">
           <h2 class="l-sec-ttl">HISTORY<span>会社沿革</span></h2>
         </div>

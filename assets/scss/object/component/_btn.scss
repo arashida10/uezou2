@@ -1,14 +1,16 @@
 .c-btn {
-  a {
-    display: flex;
-    align-items: center;
+
+  a,
+  input {
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    min-height: 58px;
-    font-size: 1.8rem;
-    background: #074E1F;
-    color: #fff;
-    padding: 0 35px;
-    box-sizing: border-box;
+    min-height     : 58px;
+    font-size      : 1.8rem;
+    background     : #074E1F;
+    color          : #fff;
+    padding        : 0 35px;
+    box-sizing     : border-box;
 
     &:hover {
       opacity: .6;
@@ -18,21 +20,22 @@
   // 矢印
   &.-arrow {
     a {
-      position: relative;
-      padding: 0 61px 0 55px;
+      position   : relative;
+      padding    : 0 61px 0 55px;
       line-height: 58px;
-      display: inline-block;
-      text-align: center;
+      display    : inline-block;
+      text-align : center;
+
       &::after {
-        content: "";
-        display: block;
-        width: 14px;
-        height: 8px;
+        content   : "";
+        display   : block;
+        width     : 14px;
+        height    : 8px;
         background: url(../images/common/arrow_wht.svg) center/contain no-repeat;
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%) rotate(90deg);
+        position  : absolute;
+        top       : 50%;
+        right     : 15px;
+        transform : translateY(-50%) rotate(90deg);
       }
     }
   }
@@ -41,26 +44,28 @@
   &-view-more {
     a {
       letter-spacing: 0.19em;
-      font-family: $f-lat;
-      padding-right: 90px;
-      position: relative;
-      transition: all .3s;
-      color: #074E1F;
+      font-family   : $f-lat;
+      padding-right : 90px;
+      position      : relative;
+      transition    : all .3s;
+      color         : #074E1F;
+
       &::after {
-        content: "";
-        display: inline-block;
-        width: 60px;
-        height: 10px;
+        content   : "";
+        display   : inline-block;
+        width     : 60px;
+        height    : 10px;
         background: url(../images/common/arrow02_green.svg) center / contain no-repeat;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
+        position  : absolute;
+        top       : 50%;
+        right     : 10px;
+        transform : translateY(-50%);
         transition: all .4s;
       }
 
       &:hover {
         opacity: 1;
+
         &::after {
           right: 0;
         }
@@ -71,6 +76,7 @@
     &.-wht {
       a {
         color: #fff;
+
         &::after {
           background-image: url(../images/common/arrow02_wht.svg);
         }
@@ -81,21 +87,98 @@
   // VIEW MORE 横長
   &-view-more02 {
     a {
-      border: 1px solid #070607;
-      box-sizing: border-box;
-      color: #074E1F;
-      height: 84px;
-      display: flex;
-      align-items: center;
+      border         : 1px solid #070607;
+      box-sizing     : border-box;
+      color          : #074E1F;
+      height         : 84px;
+      display        : flex;
+      align-items    : center;
       justify-content: center;
-      text-align: center;
-      font-size: 2rem;
-      font-family: $f-lat;
-      letter-spacing: 0.05em;
+      text-align     : center;
+      font-size      : 2rem;
+      font-family    : $f-lat;
+      letter-spacing : 0.05em;
+
       &:hover {
         background: #817E81;
-        color: #fff;
-        border: none;
+        color     : #fff;
+        border    : none;
+      }
+    }
+  }
+
+  // input用
+  &--input {
+    position: relative;
+
+    &::after {
+      content   : "";
+      display   : block;
+      width     : 14px;
+      height    : 8px;
+      background: url(../images/common/arrow_wht.svg) center/contain no-repeat;
+      position  : absolute;
+      // contact form 7 ローディング分
+      top       : 29px;
+      right     : 15px;
+      transform : translateY(-50%) rotate(90deg);
+    }
+
+    input {
+      padding    : 0 61px 0 55px;
+      line-height: 58px;
+      display    : inline-block;
+      text-align : center;
+      width      : 100%;
+      border     : none;
+    }
+  }
+
+  @include mq(md) {
+
+    // VIEW MORE 矢印付き
+    &-view-more {
+      a {
+        padding-right : 80px;
+
+        &::after {
+          width     : 60px;
+        }
+      }
+    }
+
+    // VIEW MORE 横長
+    &-view-more02 {
+      a {
+        height         : 72px;
+        font-size      : 1.8rem;
+      }
+    }
+
+    // input用
+    &--input {
+      position: relative;
+
+      &::after {
+        content   : "";
+        display   : block;
+        width     : 14px;
+        height    : 8px;
+        background: url(../images/common/arrow_wht.svg) center/contain no-repeat;
+        position  : absolute;
+        // contact form 7 ローディング分
+        top       : 29px;
+        right     : 15px;
+        transform : translateY(-50%) rotate(90deg);
+      }
+
+      input {
+        padding    : 0 61px 0 55px;
+        line-height: 58px;
+        display    : inline-block;
+        text-align : center;
+        width      : 100%;
+        border     : none;
       }
     }
   }

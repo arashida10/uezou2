@@ -1,68 +1,83 @@
 #top {
   .l-sec {
     padding-bottom: 160px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    @include mq(md) {
+      padding-bottom: 120px;
+    }
   }
 
   .mv {
-    overflow: hidden;
-    position: relative;
-    width: calc(100% - 100px);
-    height: calc(100vh - 100px);
+    overflow   : hidden;
+    position   : relative;
+    width      : calc(100% - 100px);
+    height     : calc(100vh - 100px);
     margin-left: auto;
+
     .mv-txt {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
+      position  : absolute;
+      top       : 50%;
+      left      : 50%;
+      transform : translate(-50%, -50%);
+      color     : #fff;
       text-align: center;
-      z-index: 998;
+      z-index   : 998;
+
       h2 {
-        font-size: min(4.8rem, 3.75vw);
-        font-family: $f-lat;
-        font-weight: 300;
-        line-height: 1.35;
+        font-size    : min(4.8rem, 3.75vw);
+        font-family  : $f-lat;
+        font-weight  : 300;
+        line-height  : 1.35;
         margin-bottom: 1.9vw;
       }
+
       p {
-        font-size: min(2rem, 1.56vw);
+        font-size  : min(2rem, 1.56vw);
         font-weight: 500;
         line-height: 1.45;
       }
     }
+
     .mv-bk-wrap {
-      width: 100%;
-      height: 100%;
+      width   : 100%;
+      height  : 100%;
       position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 0;
+      left    : 0;
+      top     : 0;
+      z-index : 0;
+
       .mv-bk {
-        width: 100%;
-        height: 100%;
+        width   : 100%;
+        height  : 100%;
         position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 0;
+        left    : 0;
+        top     : 0;
+        z-index : 0;
         overflow: hidden;
+
         .core-wrap {
-          width: 0;
-          height: 100%;
-          position: absolute;
-          left: 0;
-          top: 0;
-          z-index: 0;
-          overflow: hidden;
+          width    : 0;
+          height   : 100%;
+          position : absolute;
+          left     : 0;
+          top      : 0;
+          z-index  : 0;
+          overflow : hidden;
           transform: scale(1.1);
         }
+
         .core {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          left: 0;
-          top: 0;
-          z-index: 0;
-          background-size: cover;
+          width              : 100%;
+          height             : 100%;
+          position           : absolute;
+          left               : 0;
+          top                : 0;
+          z-index            : 0;
+          background-size    : cover;
           background-position: 50% 50%;
         }
       }
@@ -70,30 +85,63 @@
     }
 
     .mv-paging {
-      width: calc(100% - 50px);
-      position: absolute;
-      left: 50px;
-      bottom: 30px;
-      color: #fff;
-      display: flex;
+      width      : calc(100% - 50px);
+      position   : absolute;
+      left       : 50px;
+      bottom     : 30px;
+      color      : #fff;
+      display    : flex;
       align-items: center;
+
       .page {
         p {
-          font-size: 1.4rem;
+          font-size  : 1.4rem;
           font-weight: 400;
           font-family: $f-lat;
         }
       }
+
       .line-wrap {
-        display: inline-block;
-        margin: 0 10px;
-        width: 3.4%;
-        height: 1px;
+        display   : inline-block;
+        margin    : 0 10px;
+        width     : 3.4%;
+        height    : 1px;
         background: rgba(255, 255, 255, 0.5);
+
         .line {
-          width: 0;
-          height: 1px;
+          width     : 0;
+          height    : 1px;
           background: #fff;
+        }
+      }
+    }
+
+    @include mq(md) {
+      width : 100%;
+      height: calc(100vh - 60px);
+
+      .mv-txt {
+        left : 20px;
+        right: 20px;
+        transform: translateY(-50%);
+
+        h2 {
+          font-size    : max(3.8rem, 10.1vw);
+          margin-bottom: 7.47vw;
+        }
+
+        p {
+          font-size: max(1.5rem, 4vw);
+          line-height: 1.81;
+        }
+      }
+
+      .mv-paging {
+        width: calc(100% - 20px);
+        left : 20px;
+
+        .line-wrap {
+          width: 11.3%;
         }
       }
     }
@@ -101,43 +149,88 @@
 
   .about {
     padding-top: 160px;
+
     .about-box {
-      display: flex;
+      display  : flex;
       flex-wrap: wrap;
+
       &__left {
-        width: 100%;
-        max-width: 685px;
+        width      : 100%;
+        max-width  : 685px;
         margin-left: calc(50vw - 540px);
-        margin-top: 151px;
+        margin-top : 151px;
       }
+
       &__right {
-        width: 345px;
-        position: relative;
-        color: #fff;
-        padding: 70px calc(50vw - 540px) 70px 50px;
+        width        : 345px;
+        position     : relative;
+        color        : #fff;
+        padding      : 70px calc(50vw - 540px) 70px 50px;
         margin-bottom: 105px;
+
         &::before {
-          content: "";
-          width: calc(100% + 120px);
-          height: 100%;
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: -120px;
+          content   : "";
+          width     : calc(100% + 120px);
+          height    : 100%;
+          display   : block;
+          position  : absolute;
+          top       : 0;
+          right     : 0;
+          left      : -120px;
           background: #074e1f;
-          z-index: -1;
+          z-index   : -1;
         }
+
         .l-sec-ttl {
-          color: #fff;
+          color        : #fff;
           margin-bottom: 50px;
+
           span {
             color: #fff;
           }
         }
+
         p {
           margin-bottom: 50px;
-          line-height: 1.93;
+          line-height  : 1.93;
+        }
+      }
+    }
+
+    @include mq(md) {
+      padding-top: 120px;
+      padding-bottom: 30px;
+
+      .about-box {
+        flex-direction: column-reverse;
+
+        &__left {
+          width      : calc(100% - 40px);
+          max-width  : 685px;
+          margin: auto;
+          position: relative;
+          top: -92px;
+        }
+
+        &__right {
+          width        : 100%;
+          padding      : 40px 20px 132px;
+          margin-bottom: 0;
+          box-sizing: border-box;
+
+          &::before {
+            width     : 100%;
+            height    : 100%;
+            left      : 0;
+          }
+
+          .l-sec-ttl {
+            margin-bottom: 40px;
+          }
+
+          p {
+            margin-bottom: 40px;
+          }
         }
       }
     }
@@ -147,31 +240,36 @@
     .l-sec-ttl {
       margin-bottom: 65px;
     }
+
     .business-list {
       margin-bottom: 60px;
+
       li {
-        width: 50%;
+        width : 50%;
         margin: 0;
+
         a {
-          position: relative;
-          color: #fff;
+          position  : relative;
+          color     : #fff;
           text-align: center;
-          display: block;
+          display   : block;
         }
+
         h3 {
-          width: 100%;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 3.2rem;
-          font-weight: 400;
+          width         : 100%;
+          position      : absolute;
+          left          : 0;
+          top           : 50%;
+          transform     : translateY(-50%);
+          font-size     : 3.2rem;
+          font-weight   : 400;
           letter-spacing: 0.08em;
-          font-family: $f-lat;
+          font-family   : $f-lat;
+
           span {
-            font-size: 0.5em;
-            display: block;
-            margin-top: 10px;
+            font-size  : 0.5em;
+            display    : block;
+            margin-top : 10px;
             font-weight: 500;
             font-family: $f-zen;
           }
@@ -181,8 +279,43 @@
 
     .other-list {
       margin-bottom: 63px;
+
       .img-box {
         margin-bottom: 20px;
+      }
+    }
+
+    @include mq(md) {
+      .l-sec-ttl {
+        margin-bottom: 40px;
+      }
+
+      .business-list {
+        margin: 0 -20px 40px;
+
+        li {
+          width : 100%;
+          margin: 0;
+
+          h3 {
+            font-size     : 2.5rem;
+
+            span {
+              font-size  : 1.4rem;
+            }
+          }
+        }
+      }
+
+      .other-list {
+        margin-bottom: 40px;
+        li {
+          width: 100%;
+          margin-bottom: 30px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
@@ -190,10 +323,26 @@
   .construction {
     .construction-list {
       margin-bottom: 64px;
+
       .c-construction-card {
         margin: 0 20px;
+
         &:nth-child(odd) {
           margin-top: 85px;
+        }
+      }
+    }
+
+    @include mq(md) {
+      .construction-list {
+        margin-bottom: 40px;
+
+        .c-construction-card {
+          margin: 0 10px;
+
+          &:nth-child(odd) {
+            margin-top: 0;
+          }
         }
       }
     }
@@ -201,20 +350,37 @@
 
   .news {
     .news-box {
-      display: flex;
+      display        : flex;
       justify-content: space-between;
-      margin-bottom: 40px;
+      flex-wrap: wrap;
+      margin-bottom  : 40px;
+
       &__left {
-        width: 150px;
-        box-sizing: border-box;
+        width       : 150px;
+        box-sizing  : border-box;
         border-right: 1px solid #707070;
       }
+
       &__right {
         width: calc(100% - 200px);
       }
     }
+
     .c-btn-view-more {
       text-align: right;
+    }
+
+    @include mq(md) {
+      .news-box {
+        &__left,
+        &__right {
+          width       : 100%;
+        }
+
+        &__left {
+          border-right: none;
+        }
+      }
     }
   }
 }

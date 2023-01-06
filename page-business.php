@@ -11,7 +11,7 @@ get_header(); ?>
   </div>
 
   <p class="c-lead">緑を育て活かし、<br>
-  クオリティ・オブ・ライフの向上を目指す企業</p>
+  クオリティ・オブ・ライフの<br class="sp">向上を目指す企業</p>
   <p class="c-lead02">近年は生活環境や趣味嗜好も様々で、お施主様のお好みや庭園のスタイルも多様化しております。<br>
   緑や庭園に触れられる場所が減りつつある中でも、弊社はご要望に応じて現代に求められるテイストを取り入れた庭づくりを行っています。<br>
   お施主様のご要望に少しでもお応えできるように、入念な打ち合わせを行い、そのデザインをもとに造園工事を行います。<br>
@@ -64,7 +64,7 @@ get_header(); ?>
           <h3 class="c-construction-card__ttl">庭園管理</h3>
           <p class="c-construction-card__desc">植杉造園では、庭園や樹木が健全な状態で維持できるように、薬剤散布・樹々の手入れ・施肥などのあらゆる業務を、細心の注意を払って幅広く行います。</p>
           <div class="c-btn -arrow">
-            <a href="">庭園管理 実績一覧</a>
+            <a href="<?php echo esc_url( home_url( '/construction/庭園管理/' ) ); ?>">庭園管理 実績一覧</a>
           </div>
         </li>
         <li id="tree-management" class="c-listItem__item c-construction-card navAdjust">
@@ -78,7 +78,7 @@ get_header(); ?>
           <h3 class="c-construction-card__ttl">樹木管理</h3>
           <p class="c-construction-card__desc">樹木の健康状態を保つためには、周期的なお手入れを施す必要があります。専門的な知識を持った職人が、伐採・施肥・養生・樹木消毒・病害虫対策など、地域や季節に合わせて、その都度適切な処置を施します。</p>
           <div class="c-btn -arrow">
-            <a href="">樹木管理 実績一覧</a>
+            <a href="<?php echo esc_url( home_url( '/construction/樹木管理/' ) ); ?>">樹木管理 実績一覧</a>
           </div>
         </li>
         <li id="pruning-planting" class="c-listItem__item c-construction-card navAdjust">
@@ -92,14 +92,14 @@ get_header(); ?>
           <h3 class="c-construction-card__ttl">剪定・植樹</h3>
           <p class="c-construction-card__desc">お手入れが行き届いたお庭は、見る人に落ち着きと安らぎを与えてくれます。 美しいお庭は適切な管理があるからこそ。私たちはお庭や地域それぞれの特性を活かし、 樹木の将来を見据えたお手入れを心掛けています。</p>
           <div class="c-btn -arrow">
-            <a href="">剪定・植樹 実績一覧</a>
+            <a href="<?php echo esc_url( home_url( '/construction/剪定・植樹/' ) ); ?>">剪定・植樹 実績一覧</a>
           </div>
         </li>
         <li id="snow-fence" class="c-listItem__item c-construction-card navAdjust">
           <div class="img-box">
             <picture>
               <source media="(min-width: 769px)" srcset="<?php echo get_template_directory_uri()?>/assets/images/business/business_snow_pc.jpg">
-              <img src="<?php echo get_template_directory_uri()?>/assets/images/business/construction_snow_sp.jpg" alt="その他">
+              <img src="<?php echo get_template_directory_uri()?>/assets/images/business/business_snow_sp.jpg" alt="その他">
             </picture>
           </div>
           <p class="c-construction-card__category">SNOW FENCE</p>
@@ -107,7 +107,7 @@ get_header(); ?>
           <p class="c-construction-card__desc">雪国で暮らす私たちはお庭の樹木を守る処置を施さなければいけません。木材等で風雪を防ぐため、家の周囲を囲い、また庭木を雪や霜から守るお手伝いを行います。<br>
           ※10月末から12月中旬まではご予約が埋まっております。10月中旬の作業で良ければ若干余裕がありますのでお引き受けいたします。</p>
           <div class="c-btn -arrow">
-            <a href="">雪囲い 実績一覧</a>
+            <a href="<?php echo esc_url( home_url( '/construction/その他/' ) ); ?>">その他 実績一覧</a>
           </div>
         </li>
       </ul>

@@ -2,7 +2,7 @@
   display  : flex;
   flex-wrap: wrap;
 
-  .c-listItem__name {
+  &__name {
     font-family: $f-lat;
     font-size: 1.8rem;
     letter-spacing: 0.05em;
@@ -67,6 +67,11 @@
   }
 
   @include mq(md) {
+
+    &__name {
+      margin-bottom: 3px;
+      line-height: 1.44;
+    }
 
     // カラム設定
     &.-row2,

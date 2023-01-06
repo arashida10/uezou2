@@ -2,6 +2,7 @@
   li {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     & + li {
       margin-top: 40px;
     }
@@ -19,5 +20,25 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  @include mq(md) {
+    li {
+      & + li {
+        margin-top: 20px;
+      }
+    }
+    &__date {
+      font-size: 1.5rem;
+    }
+    .c-category {
+      margin-right: 0;
+    }
+    a {
+      margin-top: 10px;
+      width: 100%;
+      -webkit-line-clamp: 2;
+      line-height: 1.79;
+    }
   }
 }

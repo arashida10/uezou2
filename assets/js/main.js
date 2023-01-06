@@ -3,7 +3,11 @@ jQuery(function($) {
 
   // ヌルッと動く
   $('a[href^="#"]').on('click', function() {
-    console.log('fds')
+    // サイドナビ閉じる
+    $("#sideNav-open-btn, #gNav-open, #sideNav, body").removeClass("is-open");
+    $("#overlay").fadeOut();
+    $("body").css('position', 'static').css('top', 0);
+
     var href = $(this).attr("href"),
       speed = 500,
       target = $(href === "#" || href === "" ? 'html' : href),
@@ -14,7 +18,7 @@ jQuery(function($) {
 
   // ナビオープン
   let winPos;
-  $("#sideNav-open-btn").on("click", function() {
+  $("#sideNav-open-btn, #gNav-open").on("click", function() {
     $(this).toggleClass("is-open");
     $("#sideNav").toggleClass("is-open");
     $("#overlay").fadeToggle();
@@ -45,126 +49,123 @@ jQuery(function($) {
   });
 
   // トップMVスライダー
-  let top_mv_pc_images = [
-    'top_slide01_pc.jpg',
-    'top_slide02_pc.jpg',
-    'top_slide03_pc.jpg',
-    'top_slide04_pc.jpg',
-    'top_slide05_pc.jpg',
-  ];
-  const top_mv_bks_cnt = top_mv_pc_images.length;
+  const mk_bk_wrap = $('.mv-bk-wrap');
+  if(mk_bk_wrap.length > 0) {
+    let top_mv_pc_images = [
+      'top_slide01_pc.jpg',
+      'top_slide02_pc.jpg',
+      'top_slide03_pc.jpg',
+      'top_slide04_pc.jpg',
+      'top_slide05_pc.jpg',
+    ];
+    const top_mv_bks_cnt = top_mv_pc_images.length;
 
-  // 合計数出力
-  $('.mv-paging .page-cnt p').text(getZeroPadding(top_mv_bks_cnt, 2));
+    // 合計数出力
+    $('.mv-paging .page-cnt p').text(getZeroPadding(top_mv_bks_cnt, 2));
 
-  var timer = false;
-  let top_mv_images = top_mv_pc_images;
-  $(window).resize(function(){
-    if (timer !== false) {
-        clearTimeout(timer);
+    var timer = false;
+    let top_mv_images = top_mv_pc_images;
+
+    const ua = navigator.userAgent;
+    // 画像pc,sp切り替え
+    if (ua.indexOf('iPhone') > -1 || (ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1) || ua.indexOf('iPad') > -1 || ua.indexOf('Android') > -1) {
+      top_mv_images = top_mv_images.map((image) => {
+        return image.replace("pc", "sp");
+      });
+    } else {
+        // PC
+        top_mv_images = top_mv_pc_images;
     }
-    timer = setTimeout(function() {
-      // リサイズが終了した時点で行う処理または関数を記述
-      const ua = navigator.userAgent;
-      if (ua.indexOf('iPhone') > -1 || (ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1) || ua.indexOf('iPad') > -1 || ua.indexOf('Android') > -1) {
-        top_mv_images = top_mv_images.map((image) => {
-          return image.replace("pc", "sp");
-        });
-      } else {
-          // PC
-          top_mv_images = top_mv_pc_images;
-      }
-    }, 200);
-  });
 
-  let top_mv_bks_index = 1;
-  let top_mv_bks_interval = 6000;
+    let top_mv_bks_index = 1;
+    let top_mv_bks_interval = 6000;
 
-  const top_mv_bks = top_mv_images.map((image, index) => {
-    return(
-      `<div class="mv-bk">
-        <div class="core-wrap">
-          <div class="core" style="background-image: url(${path}/assets/images/top/${image}); transform: scale(1.1);"></div>
-        </div>
-      </div>`
-    );
-  });
-
-  // 最初の一枚目
-  $('.mv-bk-wrap').append(top_mv_bks);
-  $('.mv-bk-wrap .mv-bk:first-child').css('z-index', '1');
-  TweenMax.to('.mv-bk-wrap .mv-bk:first-child .core-wrap',
-    0.7,{
-      width: '100%',
-      x: 0,
-      ease:"Power3.easeOut",
-      startAt: {
-        width: 0,
-        x:-100,
-      }
+    const top_mv_bks = top_mv_images.map((image, index) => {
+      return(
+        `<div class="mv-bk">
+          <div class="core-wrap">
+            <div class="core" style="background-image: url(${path}/assets/images/top/${image}); transform: scale(1.1);"></div>
+          </div>
+        </div>`
+      );
     });
+
+    // 最初の一枚目
+    $('.mv-bk-wrap').append(top_mv_bks);
+    $('.mv-bk-wrap .mv-bk:first-child').css('z-index', '1');
     TweenMax.to('.mv-bk-wrap .mv-bk:first-child .core-wrap',
-    3,{
-      scale: 1,
-      ease:"Power3.easeOut",
-      startAt: {
-        scale:1.1
-      }
-    });
-    TweenMax.to('.line-wrap .line',
-    top_mv_bks_interval / 1000,{
-      width:"100%",
-      ease:"Power0.easeNone",
-      startAt: {
-        width:"0%"
-      }
-    });
+      0.7,{
+        width: '100%',
+        x: 0,
+        ease:"Power3.easeOut",
+        startAt: {
+          width: 0,
+          x:-100,
+        }
+      });
+      TweenMax.to('.mv-bk-wrap .mv-bk:first-child .core-wrap',
+      3,{
+        scale: 1,
+        ease:"Power3.easeOut",
+        startAt: {
+          scale:1.1
+        }
+      });
+      TweenMax.to('.line-wrap .line',
+      top_mv_bks_interval / 1000,{
+        width:"100%",
+        ease:"Power0.easeNone",
+        startAt: {
+          width:"0%"
+        }
+      });
 
-  // 残りループ
-  let top_mv_bks_z_index = top_mv_bks_index;
-  setInterval(function(){
-    top_mv_bks_index++;
-    top_mv_bks_z_index++;
+    // 残りループ
+    let top_mv_bks_z_index = top_mv_bks_index;
+    setInterval(function(){
+      top_mv_bks_index++;
+      top_mv_bks_z_index++;
 
-    $('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ')').css('z-index', top_mv_bks_z_index);
-    TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
-    0.7,{
-      width: '100%',
-      x: 0,
-      ease:"Power3.easeOut",
-      startAt: {
-        width: 0,
-        x:-100,
+      $('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ')').css('z-index', top_mv_bks_z_index);
+      TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
+      0.7,{
+        width: '100%',
+        x: 0,
+        ease:"Power3.easeOut",
+        startAt: {
+          width: 0,
+          x:-100,
+        }
+      });
+      TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
+      3,{
+        scale: 1,
+        ease:"Power3.easeOut",
+        startAt: {
+          scale:1.1
+        }
+      });
+
+      // ページング処理
+      TweenMax.to('.line-wrap .line',
+      top_mv_bks_interval / 1000,{
+        width:"100%",
+        ease:"Power0.easeNone",
+        startAt: {
+          width:"0%"
+        }
+      });
+      // ページング数字プラス
+      $('.mv-paging .page-current p').text(getZeroPadding(top_mv_bks_index, 2));
+
+
+      // ループ
+      if (top_mv_bks_index === top_mv_bks_cnt) {
+        // リセット
+        top_mv_bks_index = 0;
       }
-    });
-    TweenMax.to('.mv-bk-wrap .mv-bk:nth-child(' + top_mv_bks_index + ') .core-wrap',
-    3,{
-      scale: 1,
-      ease:"Power3.easeOut",
-      startAt: {
-        scale:1.1
-      }
-    });
-
-    // ページング処理
-    TweenMax.to('.line-wrap .line',
-    top_mv_bks_interval / 1000,{
-      width:"100%",
-      ease:"Power0.easeNone",
-      startAt: {
-        width:"0%"
-      }
-    });
-    // ページング数字プラス
-    $('.mv-paging .page-current p').text(getZeroPadding(top_mv_bks_index, 2));
-
-
-    // ループ
-    if (top_mv_bks_index === top_mv_bks_cnt) {
-      // リセット
-      top_mv_bks_index = 0;
-    }
-	},top_mv_bks_interval);
+    },top_mv_bks_interval);
+  }
 
   // トップ施工事例
   $('#construction-slide').slick({
@@ -180,6 +181,15 @@ jQuery(function($) {
     arrows: false, // 矢印非表示
     pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
     pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
+    responsive: [
+      {
+        breakpoint: 769, // 768px以下のサイズに適用
+        settings: {
+        slidesToShow: 1,
+        centerPadding: "12.5px"
+        },
+      },
+    ]
   });
 
   // Q&Aアコーディオン
@@ -202,6 +212,11 @@ jQuery(function($) {
     asNavFor: ".construction-slider",
     focusOnSelect: true,
   });
+
+  // コンタクトフォームラジオボタン
+  $('label input[type="radio"]').on('click', function() {
+    $(this).parent('label').find('.input-radio-replace').add
+  })
 
 
 

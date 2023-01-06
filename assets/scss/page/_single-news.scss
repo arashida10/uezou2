@@ -1,0 +1,26 @@
+#single-news {
+  padding-top: 100px;
+
+  .l-container {
+    max-width: 890px;
+  }
+
+  .single-news-content {
+    .single-news-date {
+      margin-bottom: 10px;
+      .fa-calendar-days {
+        padding-right: 3px;
+      }
+    }
+    .single-news-ttl {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: .05em;
+      line-height: 1.43;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.73;
+    }
+  }
+}

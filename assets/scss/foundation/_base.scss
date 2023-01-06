@@ -28,18 +28,29 @@ img {
 }
 
 .sp {
-  display: none;
+  display: none !important;
 }
 
 @include mq(md) {
   body {
     font-size: 1.4rem;
   }
+
+  .contents {
+    padding-bottom: 120px;
+  }
+
+  .navAdjust {
+    padding-top: 60px !important;
+    margin-top: -60px !important;
+  }
+
   .sp {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .pc {
-    display: none;
+    display: none !important;
   }
+
 }

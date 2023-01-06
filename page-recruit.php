@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div id="recuruit" class="contents">
   <div class="c-page-mv">
-    <h1 class="c-page-mv__ttl">RECURUIT<span>採用情報</span></h1>
+    <h1 class="c-page-mv__ttl">RECRUIT<span>採用情報</span></h1>
   </div>
 
   <div class="recuruit-intro">

@@ -38,4 +38,37 @@
       }
     }
   }
+
+  @include mq(md) {
+    width: 100%;
+    min-height: 160px;
+    margin-bottom: 60px;
+    &__ttl {
+      position: absolute;
+      left: 20px;
+      font-size: clamp(3.6rem, 9.6vw, 4.8rem);
+      width: calc(100% - 40px);
+      span {
+        font-size: 0.4444em;
+        margin-top: 4px;
+      }
+    }
+
+    &--bkNone {
+      margin-bottom: 40px;
+      background: none;
+      min-height: auto;
+      width: 100%;
+      margin: 0;
+      padding: 70px 0;
+      .c-page-mv__ttl {
+        transform: none;
+        color: #074E1F;
+        position: static;
+        span {
+          color: #333333;
+        }
+      }
+    }
+  }
 }

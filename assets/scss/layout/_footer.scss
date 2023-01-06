@@ -35,6 +35,16 @@
         transform : translateY(-50%);
       }
     }
+
+    @include mq(md) {
+      a {
+        height         : 70px;
+      }
+
+      span {
+        font-size     : 1.6rem;
+      }
+    }
   }
 
   .l-footer-nav {
@@ -73,6 +83,31 @@
             font-size  : 1.6rem;
             font-family: $f-lat;
             margin-top : 6px;
+          }
+        }
+      }
+    }
+
+    @include mq(md) {
+      padding   : 40px 0;
+
+      ul {
+        flex-wrap: wrap;
+        li {
+          width: 100%;
+
+          & + li {
+            margin-top: 30px;
+          }
+
+          a {
+            height         : 100px;
+            font-size      : 2rem;
+
+            span {
+              font-size  : 1.4rem;
+              margin-top : 5px;
+            }
           }
         }
       }
@@ -153,14 +188,14 @@
           a {
             color: #fff;
             position: relative;
-            margin-left: 14px;
+            padding-left: 14px;
 
             &::before {
               content: "";
               display: block;
               position: absolute;
               top: 50%;
-              left: -14px;
+              left: 0;
               width: 10px;
               height: 6px;
               background: url(../images/common/arrow_wht.svg) center/contain no-repeat;
@@ -176,6 +211,49 @@
       font-size     : 1.3rem;
       letter-spacing: 0.05em;
       margin-top    : 80px;
+    }
+
+    @include mq(md) {
+      padding-bottom: 20px;
+      .l-footer-contents-left,
+      .l-footer-contents-right {
+        width: 100%;
+      }
+
+      .l-footer-contents-left {
+        text-align: center;
+        margin-bottom: 60px;
+        .logo {
+          margin: 0 auto 30px;
+        }
+
+        .address {
+          font-size: 1.6rem;
+        }
+
+        .c-btn {
+          margin: auto;
+        }
+      }
+
+      .l-footer-contents-right {
+        .l-footer-nav02-wrapper {
+          justify-content: space-between;
+
+          .l-footer-nav02 {
+            width: calc(50% - 10px);
+
+            &:not(:last-child) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      .copyright {
+        font-size     : 1.1rem;
+        margin-top    : 50px;
+      }
     }
   }
 }
