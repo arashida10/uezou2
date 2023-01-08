@@ -11,7 +11,7 @@
   ?>
 
   <ul class="c-tab">
-    <li><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">すべて</a></li>
+    <li class='all'><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">すべて</a></li>
     <?php
       foreach ( $taxonomy_object as $term ) {
         echo '<li><a href="'.get_term_link($term).'">'.$term->name.'</a></li>';

@@ -10,4 +10,13 @@
   .c-news-list {
     margin-bottom: 80px;
   }
+
+  @include mq(md) {
+    .c-page-mv {
+      background-image: url(../images/news/mv_sp.jpg);
+    }
+    .c-news-list {
+      margin-bottom: 40px;
+    }
+  }
 }

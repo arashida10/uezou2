@@ -126,12 +126,12 @@
         transform: translateY(-50%);
 
         h2 {
-          font-size    : max(3.8rem, 10.1vw);
+          font-size    : min(3.8rem, 10.1vw);
           margin-bottom: 7.47vw;
         }
 
         p {
-          font-size: max(1.5rem, 4vw);
+          font-size: min(1.5rem, 4vw);
           line-height: 1.81;
         }
       }

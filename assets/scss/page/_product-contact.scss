@@ -5,4 +5,8 @@
     max-width: 983px;
     margin: auto;
   }
+
+  @include mq(md) {
+    padding-bottom: 42px;
+  }
 }

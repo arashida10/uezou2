@@ -12,7 +12,7 @@ get_header(); ?>
 
   <div class="recuruit-intro">
     <div class="l-container">
-      <p class="recuruit-intro__ttl">植杉造園では「作業員」を募集しています！</p>
+      <p class="recuruit-intro__ttl">植杉造園では<br class="sp">「作業員」を募集しています！</p>
       <p class="recuruit-intro__txt">健康な身体で楽しい人生を過ごしましょう！<br>
       草刈り作業でおなか周りをシェイプアップ。芝刈り作業で足の筋肉アップ。雪囲いで肩の筋力アップ。<br>
       造園の仕事で健康な身体を維持しましょう。<br>

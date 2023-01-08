@@ -10,7 +10,6 @@
     background     : #fff;
     display        : flex;
     justify-content: space-between;
-    flex-wrap      : wrap;
     box-shadow     : 0px 2px 7px 0px rgba($color: #333333, $alpha: .1);
   }
 
@@ -158,6 +157,10 @@
 
             img {
               height: 19px;
+            }
+
+            p {
+              margin-top: 5px;
             }
           }
         }

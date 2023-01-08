@@ -12,7 +12,7 @@
   ?>
 
   <ul class="c-tab">
-    <li><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">すべて</a></li>
+    <li class="all"><a href="<?php echo esc_url( home_url( '/item/' ) ); ?>">すべて</a></li>
     <?php
       foreach ( $taxonomy_object as $term ) {
         echo '<li><a href="'.get_term_link($term).'">'.$term->name.'</a></li>';
@@ -48,37 +48,39 @@
     }
     ?>
       <li class="c-post c-listItem__item">
-        <div class="img-box">
-          <?php
-            if (has_post_thumbnail()) {
-              $thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
-            } else {
-              $thumb_url = get_template_directory_uri() . "/assets/images/common/noimage.jpg";
-            }
-          ?>
-          <img loading="lazy" src="<?php echo $thumb_url; ?>" alt="<?php the_title(); ?>">
-          <?php
-            if($terms || is_wp_error($terms)) {
-              echo '<span class="c-category">';
-              foreach($terms as $term) {
-                echo $term->name;
-                // 1件目のみ
-                break;
+        <a href="<?php echo esc_url( home_url( '/product-contact/' ) ); ?>?item_id=<?php the_ID(); ?>" class="img-zoom">
+          <div class="img-box">
+            <?php
+              if (has_post_thumbnail()) {
+                $thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
+              } else {
+                $thumb_url = get_template_directory_uri() . "/assets/images/common/noimage.jpg";
               }
-              echo '</span>';
-            }
-          ?>
-        </div>
-        <p class="c-post__ttl"><?php the_title(); ?></p>
-        <?php if (get_field("item_desc")) :?>
-          <p class="c-post__desc"><?php echo get_field("item_desc"); ?></p>
-        <?php endif; ?>
-        <?php if (get_field("item_price")) : ?>
-          <p class="c-post__price"><?php echo get_field("item_price"); ?>円<span>税込〜</span></p>
-        <?php endif; ?>
-        <?php if (get_field("item_supplement")) :?>
-          <p class="c-post__txt"><?php echo get_field("item_supplement"); ?></p>
-        <?php endif; ?>
+            ?>
+            <img loading="lazy" src="<?php echo $thumb_url; ?>" alt="<?php the_title(); ?>">
+            <?php
+              if($terms || is_wp_error($terms)) {
+                echo '<span class="c-category">';
+                foreach($terms as $term) {
+                  echo $term->name;
+                  // 1件目のみ
+                  break;
+                }
+                echo '</span>';
+              }
+            ?>
+          </div>
+          <p class="c-post__ttl"><?php the_title(); ?></p>
+          <?php if (get_field("item_desc")) :?>
+            <p class="c-post__desc"><?php echo get_field("item_desc"); ?></p>
+          <?php endif; ?>
+          <?php if (get_field("item_price")) : ?>
+            <p class="c-post__price"><?php echo get_field("item_price"); ?>円<span>税込〜</span></p>
+          <?php endif; ?>
+          <?php if (get_field("item_supplement")) :?>
+            <p class="c-post__txt"><?php echo get_field("item_supplement"); ?></p>
+          <?php endif; ?>
+        </a>
         <ul class="item-contacts">
           <li class="item-contacts__mail">
             <a href="<?php echo esc_url( home_url( '/product-contact/' ) ); ?>?item_id=<?php the_ID(); ?>">

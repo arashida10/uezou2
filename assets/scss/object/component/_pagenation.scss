@@ -1,26 +1,43 @@
 .c-pagenation {
   ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
     li {
       margin-right: 30px;
+
       &:last-child {
         margin-right: 0;
       }
 
       .current,
       a {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
+        width          : 50px;
+        height         : 50px;
+        display        : flex;
+        align-items    : center;
         justify-content: center;
       }
 
       .current {
         background: #074E1F;
-        color: #fff;
+        color     : #fff;
+      }
+    }
+  }
+
+  @include mq(md) {
+    ul {
+      li {
+        margin-right: 27px;
+
+        .current,
+        a {
+          width    : 45px;
+          height   : 45px;
+          font-size: 1.6rem;
+        }
       }
     }
   }
@@ -28,23 +45,72 @@
 
 .c-pagenation-02 {
   margin-top: 110px;
+
   ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display        : flex;
+    align-items    : center;
+    max-width: 562px;
+    margin: auto;
+    &.first {
+      justify-content: flex-end;
+    }
+
     li {
       margin-right: 40px;
+
       &:last-child {
         margin-right: 0;
       }
     }
   }
+
   .prev {
     a {
       &::after {
-        right: auto;
-        left: 15px;
+        right    : auto;
+        left     : 15px;
         transform: translateY(-50%) rotate(-90deg);
+      }
+    }
+  }
+
+  @include mq(md) {
+    margin-top: 60px;
+
+    ul {
+      justify-content: flex-start;
+      li {
+        margin-right: 4%;
+        width: 29%;
+
+        &.back {
+          width: 34%;
+        }
+
+        &.prev {
+          a {
+            padding-left: 16px;
+            padding-right: 8px;
+          }
+        }
+
+        &.next {
+          a {
+            padding-right: 16px;
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+
+    .c-btn {
+      a {
+        min-height: 40px;
+        line-height: 40px;
+        padding: 0 12px;
+        font-size: min(1.4rem, 3.73vw);
+        display: block;
+        text-align: center;
       }
     }
   }

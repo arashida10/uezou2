@@ -82,6 +82,16 @@
         }
       }
     }
+
+    @include mq(md) {
+      a {
+        padding-right : 80px;
+
+        &::after {
+          width     : 60px;
+        }
+      }
+    }
   }
 
   // VIEW MORE 横長
@@ -103,6 +113,13 @@
         background: #817E81;
         color     : #fff;
         border    : none;
+      }
+    }
+
+    @include mq(md) {
+      a {
+        height         : 72px;
+        font-size      : 1.8rem;
       }
     }
   }
@@ -132,31 +149,8 @@
       width      : 100%;
       border     : none;
     }
-  }
 
-  @include mq(md) {
-
-    // VIEW MORE 矢印付き
-    &-view-more {
-      a {
-        padding-right : 80px;
-
-        &::after {
-          width     : 60px;
-        }
-      }
-    }
-
-    // VIEW MORE 横長
-    &-view-more02 {
-      a {
-        height         : 72px;
-        font-size      : 1.8rem;
-      }
-    }
-
-    // input用
-    &--input {
+    @include mq(md) {
       position: relative;
 
       &::after {

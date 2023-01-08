@@ -23,4 +23,15 @@
       line-height: 1.73;
     }
   }
+
+  @include mq(md) {
+    padding-top: 40px;
+
+    .single-news-content {
+      .single-news-ttl {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }

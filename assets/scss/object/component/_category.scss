@@ -5,4 +5,8 @@
   text-align: center;
   background: #074E1F;
   white-space: nowrap;
+
+  @include mq(md) {
+    font-size: 1.3rem;
+  }
 }

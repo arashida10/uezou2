@@ -23,7 +23,7 @@
       $next_txt = get_the_title( $next_post->ID );
     ?>
     <div class="c-pagenation-02">
-      <ul>
+      <ul class="<?php if (!$prev_post) echo 'first'; ?>">
         <?php if ($prev_post): ?>
           <li class="prev c-btn -arrow">
             <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>">前へ</a>
